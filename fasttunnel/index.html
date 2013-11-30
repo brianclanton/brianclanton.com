@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Fast Tunnel 2D Demo</title>
+        <style>
+        	body {
+        		margin: 0px;
+        		overflow: hidden;
+        	}
+        </style>
+    </head>
+    <body>
+        <canvas id="screen"></canvas>
+    </body>
+    <script>
+    	const NUM_WALLS = 100, WIDTH_DEVIATION = .1;
+    	
+    	var averageWidth = window.innerWidth * .25, displacementThreshold = 100, baseDisplacement = 0;
+    	var displacementGoal = window.innerWidth / 2,
+    		currentDisplacement = window.innerWidth / 2, 
+    		maxIncrement = Math.abs(currentDisplacement - displacementGoal) / NUM_WALLS;
+    	var cycles = 0, cycleMax = 50;
+    
+    	var canvas = document.querySelector("#screen");
+    	canvas.width = window.innerWidth;
+    	canvas.height = window.innerHeight;
+    	
+    	var context = canvas.getContext("2d");
+    	context.fillStyle = "#000000";
+    	
+    	var walls = new Array();
+    	for (var i = 0; i < NUM_WALLS; i++)
+    		walls[i] = generateRandomWall();
+    		
+    	var wallHeight = window.innerHeight / NUM_WALLS;
+    	
+    	function generateRandomWall() {
+    		var randomWidth = averageWidth;
+    		currentDisplacement += signum(currentDisplacement - displacementGoal) * maxIncrement;
+    		
+    		return {width : randomWidth, displacement : currentDisplacement};
+    	}
+    	
+    	function getRandomSign() {
+    		return Math.random() > 0.5 ? 1 : -1;
+    	}
+    	
+    	function signum(num) {
+    		return num > 1 ? 1 : -1;
+    	}
+    	
+    	function clamp(num, low, high) {
+    		return num < low ? low : (num > high ? high : num);
+    	}
+    	
+    	function animate() {
+    		// Clear
+    		context.clearRect(0, 0, canvas.width, canvas.height);
+    		
+    		// Draw walls
+    		for (var i = 0; i < NUM_WALLS; i++) {
+    			context.fillRect(0, i * wallHeight, walls[i].displacement, wallHeight + 1);
+    			context.fillRect(walls[i].displacement + walls[i].width, i * wallHeight, window.innerWidth - (walls[i].displacement + walls[i].width), wallHeight + 1);
+    		}
+    		
+    		walls.unshift(generateRandomWall());
+    		walls.splice(walls.length - 1, 1);
+    		
+    		// Increment cycles
+    		cycles++;
+    		
+    		if (cycles == cycleMax) {
+    			cycles = 0;
+    			
+    			var low = averageWidth / 2 + 50, high = canvas.width - (averageWidth / 2 + 50);
+    			
+    			displacementGoal = clamp(getRandomSign() * (Math.random() * displacementThreshold + baseDisplacement) + currentDisplacement, low, high);
+    			
+    			console.log(displacementGoal);
+    			// baseDisplacement = Math.max(baseDisplacement + 2, 100);
+    			maxIncrement = Math.abs(currentDisplacement - displacementGoal) / NUM_WALLS;
+    			cycleMax = Math.max(cycleMax - 2, 20);
+    			// averageWidth = Math.max(50, averageWidth * .95);
+    		}
+    		
+    		requestAnimationFrame(animate);
+    	}
+    	animate();
+    </script>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Linkages to Learning - Newsletter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="../css/main.css" rel="stylesheet">
+    <link href="../css/bootstrap-responsive.css" rel="stylesheet">
+  </head>
+  <body>
+  	<div id="wrap">
+	     <div class="navbar navbar-fixed-top">
+	      <div class="navbar-inner">
+	        <div class="container">
+	          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	          </button>
+	          <a class="brand" href="/linkages">Linkages To Learning</a>
+	          <div class="nav-collapse collapse">
+	            <ul class="nav">
+	              <li><a href="/linkages">Home</a></li>
+	              <li><a href="/linkages/sites">Sites</a></li>
+	              <li><a href="#">History</a></li>
+	              <li><a href="#">Services</a></li>
+	              <li><a href="/linkages/partners">Partners</a></li>
+	              <li><a href="#">Gallery</a></li>
+	              <li class="active"><a href="/linkages/newsletter">Newsletter</a></li>
+	              <li><a href="#">How To Help</a></li>
+	            </ul>
+	          </div><!--/.nav-collapse -->
+	        </div>
+	      </div>
+	    </div>
+	
+	    <div class="container">
+			<div id="preview" class="well">
+				<div class="row-fluid">
+					<h1>Newsletter</h1>
+					<p>
+						Browse our archive of newsletters to explore the types of services we have provided in the past.
+					</p>
+				</div>
+			</div>
+	    </div> <!-- /container -->
+	    
+		<div id="push"></div>
+  	</div>
+  	
+	<div id="footer">
+		<div class="container">
+			<p class="muted credit">
+				<strong>Linkages to Learning</strong><span class="footer-address">51 Monroe Street, 17th Floor, Rockville, MD 20850</span> 
+			</p>
+		</div>
+	</div>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    	$.getJSON("issues/index.json", function(data) {
+    		var counter = 0;
+    		var currentRow;
+    		var image;
+    		var link;
+    		var issue;
+    		
+    		for (var i = 0; i < data.length; i++) {
+    			if (counter == 0) {
+    				if (i != 3)
+    					document.querySelector("#preview").appendChild(document.createElement("br"));
+    				if (currentRow)
+    					document.querySelector("#preview").appendChild(currentRow);
+    					
+    				currentRow = document.createElement("div");
+    				currentRow.className = "row-fluid";
+    			}
+    			
+    			image = document.createElement("img");
+    			image.src = "issues/" + data[i].image;
+    			image.alt = data[i].image.slice(0, data[i].image.indexOf(".")) + " newsletter preview."
+    			
+    			link = document.createElement("a");
+    			link.href = data[i].link;
+    			link.title = "Click to read " + data[i].image.slice(0, data[i].image.indexOf(".")) + " newsletter.";
+    			link.appendChild(image);
+    			
+    			issue = document.createElement("div");
+    			issue.className = "span4";
+    			issue.appendChild(link);
+    			
+    			currentRow.appendChild(issue);
+    			
+    			counter = (counter + 1) % 3;
+    		}
+    	});
+    </script>
+  </body>
+</html>

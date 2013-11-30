@@ -1,0 +1,87 @@
+{
+    "surf": {
+        "title": "SURF Project",
+        "date": "May – August 2012",
+        "links": [
+            "http://math.nist.gov/~SRessler/webgl.html"
+        ],
+        "tech": [
+            "JavaScript",
+            "Bash"
+        ],
+        "content": [
+            "Over the course of the summer, I built an interactive web application that enhanced the display of three-dimensional functions using WebGL (a 3D graphics programming library that allows for GPU accelerated rendering in web browsers). I created new functionality for the pre-existing web application, including a unified environment for all of the mathematical models, and the creation of shader programs for coloring and other purposes."
+        ],
+        "gallery": [
+            "SURF/application.jpg",
+            "SURF/figure 1.png",
+            "SURF/figure 2.png"
+        ],
+        "source": "http://www.brianclanton.com/portfolio/source/SURF Project.zip"
+    },
+    "reaxion": {
+        "title": "Project Reaxion",
+        "date": "September 2010 - January 2011",
+        "links": [
+            "http://code.google.com/p/reaxion/"
+        ],
+        "tech": [
+            "Java"
+        ],
+        "content": [
+            "Project Reaxion is a 3D video game I worked on in a group throughout a Software Design class I took in my senior year of high school. My main contributions were to menu design and implementation, positional audio, game saves, and code organization maintainence."
+        ],
+        "gallery": [
+            "Reaxion/me.png",
+            "Reaxion/music.png",
+            "Reaxion/boss.png"
+        ],
+        "source": "https://code.google.com/p/reaxion/source/checkout"
+    },
+    "gemini": {
+        "title": "Gemini",
+        "date": "December 2011 – February 2012",
+        "links": [
+            "http://code.google.com/p/snfe-xna-game/"
+        ],
+        "tech": [
+            "C#",
+            "XNA"
+        ],
+        "content": [
+            "Gemini is a platforming puzzler I created on a team during a class I took freshman year called Game Software Development III. My team of four was formed during the final days of our class from the previous quarter, Game Software Development II. We decided to get a head start on our project by participating in an upcoming game jam hosted by Microsoft called Imagine Cup. We used the time to explore game design ideas and to create the basic engine for the game we would continue to develop during Game Software Development III.",
+            "The object of the game is to move from the starting location to the goal zones. The catch is that you control two robots existing in parallel dimensions. Their worlds are mostly the same but there are some blocks that exist in only one world. When one of the robots is standing on a block, it becomes available in both worlds. Using this mechanic, you collaborate with yourself to allow both robots to reach their respective goal points. It is required, as the levels cannot be completed by the robots individually.",
+            "I specifically worked on the back-end of the game. I focused on game state management and content management from a programmatic standpoint. I also created the dynamic menu system used in game. All of the menus are created by defining a list of menu items paired with a delegate function. The menus are displayed as text aligned vertically. All of the spacing is done dynamically. I created the menu system this way so that we could easily make new menus and alter existing menus, allowing us to focus on other more pertinent aspects of our game."
+        ],
+        "gallery": [],
+        "field": "http://www.brianclanton.com/portfolio/source/SNFEGame.zip"
+    },
+    "gsdrpg": {
+        "title": "GSD II Final Project: RPG",
+        "date": "October – November 2011",
+        "links": [],
+        "tech": [
+            "C#",
+            "XNA"
+        ],
+        "content": [
+            "In my first quarter at RIT, I took a class called Game Software Development II, which focused on building a foundation in basic computer science knowledge and language constructs. Students demonstrated comprehension through programming exercises and projects, most of which were video games.",
+            "For our individual final project, we were tasked with creating an RPG game featuring multiple playable classes and enemy classes, item drops, navigation between different rooms, etc. The game is simple: you play with three characters and are able to select between three different classes for each. You fight battles and progress to the next room if you win. The rooms follow a linear progression of increasing difficulty that eventually leads to a final boss. I gained inspiration from my project from classic JRPG games such Final Fantasy III and Chrono Trigger, both created by Squaresoft. It features a class system characteristic of early RPGS and an active time battle system similar to that of Chrono Trigger, thus adding a sense of urgency to the gameplay."
+        ],
+        "gallery": [
+            "GSD II RPG/Character Select.jpg",
+            "GSD II RPG/Battle 1.jpg",
+            "GSD II RPG/Battle 2.jpg",
+            "GSD II RPG/Boss Battle.jpg"
+        ],
+        "source": "http://www.brianclanton.com/portfolio/source/GSD II RPG.zip"
+    },
+    "template": {
+        "title": "value",
+        "date": "value",
+        "imgSrc": "value",
+        "links": [],
+        "tech": [],
+        "content": []
+    }
+}

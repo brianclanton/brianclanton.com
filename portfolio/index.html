@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Portfolio Template -->
+		<title>Brian Clanton - Portfolio</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="/favicon.ico" type="image/x-icon">
+		<!-- Bootstrap -->
+		<link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
+	    <link href="/css/main.css" rel="stylesheet">
+    	<link href="/css/bootstrap-responsive.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</a>
+					<a class="brand" href="/">Brian Clanton</a>
+					<div class="nav-collapse collapse">
+						<ul class="nav">
+							<li><a href="/">Home</a></li>
+							<li><a href="http://blog.brianclanton.com">Blog</a></li>
+							<li class="dropdown active">
+								<a href="/portfolio" class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="/portfolio/?name=surf">SURF Project</a></li>
+									<li><a href="/portfolio/?name=gemini">Gemini</a></li>
+									<li><a href="/portfolio/?name=gsdrpg">GSD II RPG</a></li>
+									<li><a href="/portfolio/?name=reaxion">Project Reaxion</a></li>
+								</ul>
+							</li>
+							<li><a href="/about_me">About Me</a></li>						
+						</ul>
+					</div><!--/.nav-collapse -->
+				</div>
+			</div>
+		</div>
+
+		<div id="content" class="container"></div>
+
+		<script id="portfolioTemplate" type="text/template">
+			<div class='sectionTitle'><h2>{{title}}</h2><h4 class='muted'>{{date}}</h4></div>
+			<div class='well'>
+				<div id='portfolioCarousel' class='carousel slide'>
+					<div class='carousel-inner'>
+						{{#gallery}}
+							<div class='item'>
+								<img src='images/{{.}}' />
+							</div>
+						{{/gallery}}
+					</div>
+
+					<a class="carousel-control left" href="#portfolioCarousel" data-slide="prev">&lsaquo;</a>
+					<a class="carousel-control right" href="#portfolioCarousel" data-slide="next">&rsaquo;</a>
+				</div>
+				{{#content}}
+					<p>{{.}}</p>
+				{{/content}}
+				<br />
+				<a id='source' href='{{source}}'>Source Code</a>
+			</div>
+		</script>		
+
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
+		<script src="/js/bootstrap.min.js"></script>
+		<script src="/js/mustache.js"></script>
+		<script src="/js/portfolio.js"></script>
+		<script src="/js/site.js"></script>
+		<script type="text/javascript">
+			function getParameterByName(name)
+			{
+				name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+				var regexS = "[\\?&]" + name + "=([^&#]*)";
+				var regex = new RegExp(regexS);
+				var results = regex.exec(window.location.search);
+				if(results == null)
+					return "";
+				else
+					return decodeURIComponent(results[1].replace(/\+/g, " "));
+			}
+
+			window.addEventListener("load", function() {
+				var pageName = getParameterByName("name");
+				pageName = pageName ? pageName : "surf";
+				portfolio.renderPage(pageName);
+				$("div.carousel-inner>:first-child").addClass("active");
+				$('.carousel').carousel({
+					interval : 5000
+				});
+				linkify("#source");
+			});
+		</script>
+	</body>
+</html>

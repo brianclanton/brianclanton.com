@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Contact Page -->
+		<title>Brian Clanton - About Me</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		 
+		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="/favicon.ico" type="image/x-icon">
+		<!-- Bootstrap -->
+		<link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
+	    <link href="/css/main.css" rel="stylesheet">
+    	<link href="/css/bootstrap-responsive.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</a>
+					<a class="brand" href="/">Brian Clanton</a>
+					<div class="nav-collapse collapse">
+						<ul class="nav">
+							<li><a href="/">Home</a></li>
+							<li><a href="http://blog.brianclanton.com">Blog</a></li>
+							<li class="dropdown">
+								<a href="/portfolio" class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li><a href="/portfolio/?name=surf">SURF Project</a></li>
+									<li><a href="/portfolio/?name=gemini">Gemini</a></li>
+									<li><a href="/portfolio/?name=gsdrpg">GSD II RPG</a></li>
+									<li><a href="/portfolio/?name=reaxion">Project Reaxion</a></li>
+								</ul>
+							</li>
+							<li class="active"><a href="/about_me">About Me</a></li>						
+						</ul>
+					</div><!--/.nav-collapse -->
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<h2>About Me</h2>
+			<div class="well">
+				<h3>Bio</h3>
+				<p>
+					I'm a student at Rochester Institute of Technology that enjoys programming, gaming, and a cappella. I love learning new things and I'm always eager to apply my learning to do things I've never done before. I've had a pretty good amount of experience with the aspects of programming in a work setting, such as organization and communication through version control and presenting my work to peers and colleagues whether through formal presentations or weekly meetings. If you have any questions, feel free to contact me.
+				</p>
+				<h3>Contact Info</h3>
+				<ul class="contactInfo">
+					<li><a href="mailto:brian.clanton@gmail.com">Gmail</a><li>
+					<li><a href="http://www.facebook.com/brian.david.clanton">Facebook</a></li>
+					<li><a href="https://plus.google.com/107316589361838094776">Google+</a></li>
+					<li><a href="http://www.linkedin.com/profile/view?id=139087991">LinkedIn</a></li>
+					<li><a href="http://code.google.com/u/brian.clanton/">Google Code</a>
+					<li><a href="https://github.com/brianclanton">GitHub</a></li>
+				</ul>
+				<h3>Resume</h3>
+				<p>
+					<a href="Brian Clanton Resume September 2013.pdf"><img style="display: inline" src="/img/pdf_icon.png" /></a> (Updated September 2013) 
+				</p>
+			</div>
+		</div> <!-- /container -->
+
+		<div id="footer">
+			
+		</div>
+
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
+		<script src="/js/bootstrap.min.js"></script>
+		<script src="/js/site.js"></script>
+		<script type="text/javascript">
+			linkify("ul.contactInfo > li > a");
+		</script>
+	</body>
+</html>
