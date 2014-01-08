@@ -1,0 +1,5 @@
+name: Brian Clanton
+markdown: redcarpet
+pygments: true
+
+permalink: /:categories/:title
